@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package small.ad.manager;
+
+// The reporting service definition.
+service ReportingService {
+    // Runs a report.
+    rpc RunReportJob (RunReportRequest) returns (RunReportResponse);
+
+    // Polls the status of a report.
+    rpc PollReportStatus (PollReportStatusRequest) returns (PollReportStatusResponse);
+}
+
+// The request message containing the parameters for running a report.
+message RunReportRequest {
+    string report_request = 1;
+}
+
+// The response message containing the result of running a report.
+message RunReportResponse {
+    string report_id = 1;
+    string status = 2;
+}
+
+// The request message for polling the status of a report.
+message PollReportStatusRequest {
+    string report_id = 1;
+}
+
+// The response message containing the status of a report.
+message PollReportStatusResponse {
+    string status = 1;
+    string download_url = 2;
+}

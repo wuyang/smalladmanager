@@ -1,11 +1,11 @@
 syntax = "proto3";
 
-package small.ad.manager;
+package smalladmanager;
 
 // The reporting service definition.
 service ReportingService {
     // Runs a report.
-    rpc RunReportJob (RunReportRequest) returns (RunReportResponse);
+    rpc RunReport (RunReportRequest) returns (RunReportResponse);
 
     // Polls the status of a report.
     rpc PollReportStatus (PollReportStatusRequest) returns (PollReportStatusResponse);
